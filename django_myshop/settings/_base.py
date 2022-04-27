@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     # ...
     # local
     # ...
+    'django_myshop.apps.shop',
+    'django_myshop.apps.cart'
 ]
 
 MIDDLEWARE = [
@@ -144,7 +146,7 @@ USE_L10N = True
 USE_TZ = True
 
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'django_myshop', 'site_static'),
+    os.path.join(BASE_DIR, 'django_myshop', 'locale'),
 ]
 
 # Static files (CSS, JavaScript, Images)
@@ -155,7 +157,7 @@ STATICFILES_DIRS = [
 ]
 
 
-STATIC_URL = '/static/'
+STATIC_URL = '/site-static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
@@ -165,3 +167,5 @@ EMAIL_HOST = get_secret("EMAIL_HOST")
 EMAIL_PORT = get_secret("EMAIL_PORT")
 EMAIL_HOST_USER = get_secret("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = get_secret("EMAIL_HOST_PASSWORD")
+
+CART_SESSION_ID = 'cart'

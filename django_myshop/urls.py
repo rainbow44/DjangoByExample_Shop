@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    path('', TemplateView.as_view()),
     path('admin/', admin.site.urls),
+    path('', include('django_myshop.apps.shop.urls', namespace='shop')),
+
 ]
