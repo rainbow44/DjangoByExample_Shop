@@ -59,7 +59,8 @@ INSTALLED_APPS = [
     # local
     # ...
     'django_myshop.apps.shop',
-    'django_myshop.apps.cart'
+    'django_myshop.apps.cart',
+    'django_myshop.apps.orders',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +87,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_myshop.apps.cart.context_processors.cart'
             ],
         },
     },
@@ -163,9 +165,9 @@ STATIC_URL = '/site-static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-EMAIL_HOST = get_secret("EMAIL_HOST")
-EMAIL_PORT = get_secret("EMAIL_PORT")
-EMAIL_HOST_USER = get_secret("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = get_secret("EMAIL_HOST_PASSWORD")
-
+#EMAIL_HOST = get_secret("EMAIL_HOST")
+#EMAIL_PORT = get_secret("EMAIL_PORT")
+#EMAIL_HOST_USER = get_secret("EMAIL_HOST_USER")
+#EMAIL_HOST_PASSWORD = get_secret("EMAIL_HOST_PASSWORD")
+EMAIL_BACKEND =  'django.core.mail.backends.console.EmailBackend'
 CART_SESSION_ID = 'cart'

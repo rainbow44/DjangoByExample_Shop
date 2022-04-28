@@ -21,6 +21,9 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('cart/', include('django_myshop.apps.cart.urls', namespace='cart')),
+    path('orders/', include('django_myshop.apps.orders.urls', namespace='orders')),
     path('', include('django_myshop.apps.shop.urls', namespace='shop')),
+
 
 ]
